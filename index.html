@@ -152,21 +152,125 @@
             z-index: 1000;
             box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
         }
+
+/* CENTERED NAVBAR */
+
+header {
+    background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(138, 43, 226, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+    flex-wrap: wrap;
+    gap: 50px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 24px;
+    color: #fff;
+    letter-spacing: 1px;
+    position: absolute;
+    left: 50px;
+    animation: fadeInDown 0.8s ease-out 0.1s both;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    white-space: nowrap;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #b0b0b0;
+    font-weight: 500;
+    transition: all 0.3s;
+    white-space: nowrap;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #8a2be2;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #8a2be2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        gap: 20px;
+    }
+    
+    .logo {
+        position: static;
+        font-size: 20px;
+    }
+    
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    nav a {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 12px 15px;
+    }
+    
+    .logo {
+        font-size: 18px;
+    }
+    
+    nav {
+        gap: 10px;
+    }
+    
+    nav a {
+        font-size: 11px;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
         
-        header {
-            background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 15px rgba(138, 43, 226, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
-            flex-wrap: nowrap;
-            animation: fadeInDown 0.8s ease-out;
-        }
+        
+        
         
         nav {
             display: flex;
@@ -2002,3 +2106,4 @@
 </body>
 
 </html>
+
