@@ -11,11 +11,136 @@
             box-sizing: border-box;
         }
         
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(138, 43, 226, 0.8);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes progressBar {
+            from {
+                width: 0%;
+            }
+            to {
+                width: var(--progress);
+            }
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #e0e0e0;
             background-color: #0f1419;
+            overflow-x: hidden;
+        }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #8a2be2, #5a1fa3);
+            width: 0%;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
         }
         
         header {
@@ -30,6 +155,7 @@
             z-index: 100;
             border-bottom: 1px solid rgba(138, 43, 226, 0.3);
             flex-wrap: nowrap;
+            animation: fadeInDown 0.8s ease-out;
         }
         
         nav {
@@ -43,14 +169,31 @@
             font-size: 24px;
             color: #fff;
             letter-spacing: 1px;
+            animation: fadeInDown 0.8s ease-out 0.1s both;
         }
         
         nav a {
             text-decoration: none;
             color: #b0b0b0;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s;
             white-space: nowrap;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #8a2be2;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
         }
         
         nav a:hover {
@@ -72,12 +215,14 @@
             color: #8a2be2;
             margin-bottom: 20px;
             font-weight: 500;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
         
         .hero-content h1 {
             font-size: 48px;
             margin-bottom: 20px;
             color: #fff;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
         }
         
         .hero-title {
@@ -85,6 +230,7 @@
             color: #8a2be2;
             margin-bottom: 20px;
             font-weight: 600;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
         
         .hero-content p {
@@ -92,12 +238,14 @@
             color: #b0b0b0;
             margin-bottom: 30px;
             line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
         }
         
         .location-info {
             font-size: 14px;
             color: #8a2be2;
             margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
         }
         
         .cta-button {
@@ -111,11 +259,31 @@
             transition: all 0.3s;
             border: 2px solid #8a2be2;
             cursor: pointer;
+            animation: fadeInUp 0.8s ease-out 0.7s both;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: left 0.3s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
         }
         
         .cta-button:hover {
             background: transparent;
             color: #8a2be2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
         }
         
         .hero-image {
@@ -124,6 +292,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            animation: slideInRight 0.8s ease-out 0.3s both;
         }
         
         .hero-image img {
@@ -134,11 +303,67 @@
             object-position: center;
             border: 4px solid #8a2be2;
             box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+            animation: float 3s ease-in-out infinite, glow 3s ease-in-out infinite;
+        }
+        
+        /* STATS SECTION */
+        .stats-section {
+            padding: 80px 50px;
+            background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .stat-card {
+            background: rgba(138, 43, 226, 0.1);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            transition: all 0.3s;
+            animation: scaleIn 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .stat-card:hover {
+            background: rgba(138, 43, 226, 0.2);
+            transform: translateY(-10px);
+            border-color: #8a2be2;
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 44px;
+            font-weight: 800;
+            color: #8a2be2;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #b0b0b0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
         
         section {
             padding: 80px 50px;
             border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+            animation: fadeInUp 0.8s ease-out;
         }
         
         .section-title {
@@ -146,6 +371,79 @@
             font-size: 36px;
             margin-bottom: 60px;
             color: #fff;
+            position: relative;
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #8a2be2;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+            animation: scaleIn 0.8s ease-out 0.2s both;
+        }
+        
+        /* SKILLS SECTION */
+        .skills-section {
+            background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .skill-item {
+            animation: slideInLeft 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .skill-item:nth-child(odd) { animation-delay: 0.1s; }
+        .skill-item:nth-child(even) { animation-delay: 0.2s; }
+        .skill-item:nth-child(3) { animation-delay: 0.3s; }
+        .skill-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        .skill-title {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .skill-bar {
+            height: 6px;
+            background: rgba(138, 43, 226, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #8a2be2, #5a1fa3);
+            border-radius: 3px;
+            width: 0%;
+            animation: progressBar 1.5s ease-out forwards;
+            transition: all 0.3s;
+        }
+        
+        .skill-bar:hover .skill-progress {
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+        }
+        
+        .skill-percentage {
+            color: #8a2be2;
+            font-size: 12px;
+            margin-top: 5px;
+            font-weight: 600;
         }
         
         .about-content {
@@ -158,7 +456,16 @@
             color: #b0b0b0;
             margin-bottom: 20px;
             line-height: 1.9;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
         }
+        
+        .about-content p:nth-child(1) { animation-delay: 0.1s; }
+        .about-content p:nth-child(2) { animation-delay: 0.2s; }
+        .about-content p:nth-child(3) { animation-delay: 0.3s; }
+        .about-content p:nth-child(4) { animation-delay: 0.4s; }
+        .about-content p:nth-child(5) { animation-delay: 0.5s; }
+        .about-content p:nth-child(6) { animation-delay: 0.6s; }
         
         .experience-container {
             max-width: 1000px;
@@ -171,6 +478,18 @@
             border-left: 3px solid #8a2be2;
             padding-left: 30px;
             position: relative;
+            animation: slideInLeft 0.8s ease-out;
+            animation-fill-mode: both;
+            transition: all 0.3s;
+        }
+        
+        .exp-item:nth-child(1) { animation-delay: 0.1s; }
+        .exp-item:nth-child(2) { animation-delay: 0.2s; }
+        .exp-item:nth-child(3) { animation-delay: 0.3s; }
+        
+        .exp-item:hover {
+            transform: translateX(10px);
+            padding-left: 40px;
         }
         
         .exp-item::before {
@@ -183,6 +502,12 @@
             background: #8a2be2;
             border-radius: 50%;
             border: 3px solid #0f1419;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .exp-item:hover::before {
+            animation: none;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
         }
         
         .company-header {
@@ -203,6 +528,11 @@
             font-weight: bold;
             color: white;
             font-size: 12px;
+            transition: all 0.3s;
+        }
+        
+        .exp-item:hover .company-logo {
+            transform: rotate(360deg) scale(1.1);
         }
         
         .company-info h3 {
@@ -233,6 +563,13 @@
             font-size: 12px;
             margin-bottom: 10px;
             margin-right: 10px;
+            animation: scaleIn 0.6s ease-out;
+            transition: all 0.3s;
+        }
+        
+        .job-type:hover {
+            background: rgba(138, 43, 226, 0.4);
+            transform: scale(1.05);
         }
         
         .job-duration {
@@ -252,6 +589,11 @@
             color: #b0b0b0;
             margin-bottom: 12px;
             line-height: 1.8;
+            transition: all 0.3s;
+        }
+        
+        .exp-item:hover .job-description {
+            color: #e0e0e0;
         }
         
         .skills-tag {
@@ -263,6 +605,14 @@
             font-size: 13px;
             margin-right: 8px;
             margin-bottom: 8px;
+            transition: all 0.3s;
+            animation: scaleIn 0.6s ease-out;
+        }
+        
+        .skills-tag:hover {
+            background: #8a2be2;
+            color: #fff;
+            transform: scale(1.1);
         }
         
         .certificates-container {
@@ -276,11 +626,12 @@
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid rgba(138, 43, 226, 0.3);
+            animation: scaleIn 0.8s ease-out;
         }
         
         .carousel {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         .carousel-slide {
@@ -290,6 +641,7 @@
             justify-content: center;
             padding: 40px;
             background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+            animation: fadeInUp 0.6s ease-out;
         }
         
         .carousel-slide img {
@@ -297,6 +649,12 @@
             max-height: 500px;
             border-radius: 8px;
             box-shadow: 0 8px 25px rgba(138, 43, 226, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .carousel-slide:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.4);
         }
         
         .carousel-controls {
@@ -306,6 +664,7 @@
             padding: 20px 30px;
             background: rgba(30, 35, 46, 0.8);
             border-top: 1px solid rgba(138, 43, 226, 0.3);
+            animation: slideUp 0.8s ease-out 0.2s both;
         }
         
         .carousel-button {
@@ -318,12 +677,33 @@
             font-weight: 600;
             transition: all 0.3s;
             font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .carousel-button:active::after {
+            width: 300px;
+            height: 300px;
         }
         
         .carousel-button:hover {
             background: transparent;
             border: 2px solid #8a2be2;
             color: #8a2be2;
+            transform: translateY(-2px);
         }
         
         .carousel-button:active {
@@ -334,6 +714,7 @@
             color: #8a2be2;
             font-weight: 600;
             font-size: 14px;
+            animation: pulse 2s ease-in-out infinite;
         }
         
         .carousel-dots {
@@ -341,6 +722,7 @@
             justify-content: center;
             gap: 8px;
             padding: 15px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
         }
         
         .dot {
@@ -355,10 +737,12 @@
         .dot.active {
             background: #8a2be2;
             transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
         }
         
         .dot:hover {
             background: #8a2be2;
+            transform: scale(1.15);
         }
         
         .contact-section {
@@ -375,11 +759,18 @@
             margin: 0 auto 40px;
             color: #b0b0b0;
             font-size: 16px;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
         }
         
         .form-group {
             margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
         }
+        
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
         
         .form-group input,
         .form-group textarea {
@@ -405,7 +796,8 @@
             outline: none;
             border-color: #8a2be2;
             background: rgba(30, 35, 46, 1);
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+            transform: scale(1.02);
         }
         
         .form-group textarea {
@@ -419,6 +811,7 @@
             gap: 20px;
             justify-content: center;
             margin-top: 30px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
         
         .social-link {
@@ -433,10 +826,26 @@
             text-decoration: none;
             color: #8a2be2;
             transition: all 0.3s;
+            position: relative;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #8a2be2;
+            border-radius: 50%;
+            z-index: -1;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover::before {
+            transform: scale(1);
         }
         
         .social-link:hover {
-            background: #8a2be2;
             color: #fff;
         }
         
@@ -446,11 +855,16 @@
             text-align: center;
             padding: 40px;
             font-size: 14px;
+            animation: fadeInUp 0.8s ease-out;
         }
         
         @media (max-width: 768px) {
-            .hero, .testimonial-grid {
+            .hero, .stats-grid, .skills-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
             header {
@@ -462,6 +876,7 @@
             nav {
                 display: flex;
                 gap: 20px;
+                flex-wrap: wrap;
             }
             
             nav a {
@@ -475,11 +890,14 @@
     </style>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
     <!-- Header -->
     <header>
-        <div class="logo"></div>
+        <div class="logo">SJ</div>
         <nav>
             <a href="#about">About</a>
+            <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
             <a href="#certificates">Certificates</a>
             <a href="#contact">Contact</a>
@@ -491,13 +909,71 @@
         <div class="hero-content">
             <h2>Project & Program Management Analyst</h2>
             <h1>Sidharth Jain</h1>
-            <div class="hero-title">Accenture | Resource & Capacity Planning | PCS Certified</div>
-            <p>Detail-oriented and impact-driven Project & Program Management Analyst with 3+ years of experience at Accenture. Expert in resource and bench management, project staffing, capacity planning, and operational coordination. PCS Certified with proficiency in Power BI, Excel, and MS Project.</p>
+            <div class="hero-title">Accenture | Resource & Capacity Planning | Scrum Master | PCS Certified</div>
+            <p>I am Sidharth Jain, a Detail-oriented and impact-driven Project & Program Management Analyst with 3+ years of experience at Accenture. Expert in resource and bench management, project staffing, capacity planning, and operational coordination. PCS Certified with proficiency in Power BI, Excel, and MS Project.</p>
             <div class="location-info">📍 Jaipur, Rajasthan, India</div>
             <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get In Touch</button>
         </div>
         <div class="hero-image">
-            <img src="assets\images\sidharthjain.png" alt="Sidharth Jain">
+            <img src="assets/images/sidharthjain.png" alt="Sidharth Jain">
+        </div>
+    </section>
+    
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" data-target="140">0</div>
+                <div class="stat-label">Professionals Managed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="60">0</div>
+                <div class="stat-label">Employees Onboarded</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="skills-section">
+        <h3 class="section-title">Skills & Expertise</h3>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-title">Resource Management</div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 95%;"></div>
+                </div>
+                <div class="skill-percentage">95%</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">Capacity Planning</div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 92%;"></div>
+                </div>
+                <div class="skill-percentage">92%</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">Power BI & MS Excel </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 90%;"></div>
+                </div>
+                <div class="skill-percentage">90%</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-title">Program Control Services</div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 88%;"></div>
+                </div>
+                <div class="skill-percentage">88%</div>
+
+            </div>
         </div>
     </section>
     
@@ -505,7 +981,7 @@
     <section id="about">
         <h3 class="section-title">About Me</h3>
         <div class="about-content">
-            <p>I'm Sidharth Jain, a detail-oriented and impact-driven Project & Program Management Analyst with over 3 years of experience at Accenture. My core expertise lies in resource and bench management, project staffing, capacity planning, and end-to-end operational coordination across multiple markets.</p>
+            <p> I'm Sidharth Jain, a detail-oriented and impact-driven Project & Program Management Analyst with over 3 years of experience at Accenture. My core expertise lies in resource and bench management, project staffing, capacity planning, and end-to-end operational coordination across multiple markets.</p>
             
             <p>I have successfully managed the staffing and allocation of over 140+ professionals, aligning skill sets with the right projects to ensure delivery efficiency and business success. I've also handled WBSE charge code management for salary submissions, onboarding/offboarding workflows for 60+ employees, and MD-level stakeholder meeting coordination across Indian locations – ensuring smooth transitions and consistent operational excellence.</p>
             
@@ -585,8 +1061,6 @@
         </div>
     </section>
     
-
-    
     <!-- Certificates Section -->
     <section id="certificates">
         <h3 class="section-title">Certificates</h3>
@@ -624,7 +1098,7 @@
                 
                 <div class="carousel-controls">
                     <button class="carousel-button" onclick="prevSlide()">← Previous</button>
-                    <span class="carousel-counter"><span id="current">1</span> / <span id="total">7</span></span>
+                    <span class="carousel-counter"><span id="current">1</span> / <span id="total">9</span></span>
                     <button class="carousel-button" onclick="nextSlide()">Next →</button>
                 </div>
             </div>
@@ -663,8 +1137,49 @@
     </footer>
     
     <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.scrollY / totalHeight) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+        
+        // Counter Animation for Stats
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target;
+                    const target = parseInt(statNumber.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = target / 50;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            statNumber.textContent = target + '+';
+                            clearInterval(timer);
+                        } else {
+                            statNumber.textContent = Math.floor(current);
+                        }
+                    }, 30);
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('[data-target]').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Carousel Functions
         let currentSlide = 0;
-        const totalSlides = 7;
+        const totalSlides = 9;
         let autoScrollInterval;
 
         function showSlide(n) {
