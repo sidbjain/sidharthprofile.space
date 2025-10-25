@@ -858,6 +858,41 @@
             animation: fadeInUp 0.8s ease-out;
         }
         
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8a2be2, #5a1fa3);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+            z-index: 999;
+            animation: slideInRight 0.5s ease-out;
+        }
+        
+        .scroll-to-top.show {
+            display: flex;
+        }
+        
+        .scroll-to-top:hover {
+            background: linear-gradient(135deg, #5a1fa3, #8a2be2);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(138, 43, 226, 0.6);
+        }
+        
+        .scroll-to-top:active {
+            transform: scale(0.95);
+        }
+        
         @media (max-width: 768px) {
             .hero, .stats-grid, .skills-grid {
                 grid-template-columns: 1fr;
@@ -865,26 +900,424 @@
             
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .stat-card {
+                padding: 25px 15px;
+            }
+            
+            .stat-number {
+                font-size: 32px;
+            }
+            
+            .stat-label {
+                font-size: 12px;
             }
             
             header {
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px;
+                padding: 15px 20px;
+                gap: 15px;
+            }
+            
+            .logo {
+                font-size: 20px;
             }
             
             nav {
-                display: flex;
-                gap: 20px;
+                gap: 15px;
                 flex-wrap: wrap;
+                justify-content: center;
             }
             
             nav a {
-                margin-left: 0;
+                font-size: 13px;
             }
             
             section {
-                padding: 40px 20px;
+                padding: 50px 20px;
+            }
+            
+            .hero {
+                padding: 50px 20px;
+                gap: 30px;
+            }
+            
+            .hero-image {
+                height: 350px;
+            }
+            
+            .hero-image img {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            .hero-title {
+                font-size: 18px;
+            }
+            
+            .hero-content p {
+                font-size: 14px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+            
+            .skills-grid {
+                gap: 25px;
+            }
+            
+            .skill-title {
+                font-size: 14px;
+            }
+            
+            .about-content p {
+                font-size: 14px;
+            }
+            
+            .experience-container {
+                max-width: 100%;
+            }
+            
+            .exp-item {
+                padding-left: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .exp-item:hover {
+                transform: translateX(5px);
+                padding-left: 25px;
+            }
+            
+            .company-logo {
+                width: 35px;
+                height: 35px;
+                font-size: 10px;
+            }
+            
+            .company-info h3 {
+                font-size: 16px;
+            }
+            
+            .job-title {
+                font-size: 16px;
+            }
+            
+            .job-description {
+                font-size: 13px;
+            }
+            
+            .skills-tag {
+                font-size: 11px;
+                padding: 4px 10px;
+                margin-right: 6px;
+            }
+            
+            .carousel-slide {
+                padding: 20px;
+            }
+            
+            .carousel-slide img {
+                max-height: 350px;
+            }
+            
+            .carousel-controls {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .carousel-button {
+                width: 100%;
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+            
+            .carousel-counter {
+                font-size: 12px;
+            }
+            
+            .contact-section {
+                padding: 50px 20px;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                max-width: 100%;
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+            
+            .form-group textarea {
+                min-height: 100px;
+                max-width: 100%;
+            }
+            
+            .social-links {
+                gap: 15px;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .cta-button {
+                padding: 10px 25px;
+                font-size: 14px;
+            }
+            
+            .scroll-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 20px;
+            }
+            
+            footer {
+                padding: 30px 15px;
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 12px 15px;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
+            
+            nav {
+                gap: 10px;
+                font-size: 12px;
+            }
+            
+            nav a {
+                font-size: 11px;
+            }
+            
+            section {
+                padding: 35px 15px;
+            }
+            
+            .hero {
+                padding: 35px 15px;
+                gap: 20px;
+            }
+            
+            .hero-content h1 {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+            
+            .hero-content h2 {
+                font-size: 14px;
+            }
+            
+            .hero-title {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            
+            .hero-content p {
+                font-size: 13px;
+                margin-bottom: 20px;
+            }
+            
+            .location-info {
+                font-size: 12px;
+            }
+            
+            .hero-image {
+                height: 280px;
+            }
+            
+            .hero-image img {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .stats-section {
+                padding: 35px 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .stat-card {
+                padding: 20px 12px;
+            }
+            
+            .stat-number {
+                font-size: 28px;
+            }
+            
+            .stat-label {
+                font-size: 11px;
+            }
+            
+            .section-title {
+                font-size: 22px;
+                margin-bottom: 30px;
+            }
+            
+            .section-title::after {
+                width: 50px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .skill-title {
+                font-size: 13px;
+            }
+            
+            .skill-percentage {
+                font-size: 11px;
+            }
+            
+            .about-content p {
+                font-size: 13px;
+                margin-bottom: 15px;
+            }
+            
+            .exp-item {
+                padding-left: 15px;
+                margin-bottom: 25px;
+            }
+            
+            .company-header {
+                gap: 10px;
+            }
+            
+            .company-logo {
+                width: 32px;
+                height: 32px;
+                font-size: 10px;
+            }
+            
+            .company-info h3 {
+                font-size: 14px;
+                margin-bottom: 3px;
+            }
+            
+            .company-info p {
+                font-size: 12px;
+            }
+            
+            .job-title {
+                font-size: 14px;
+            }
+            
+            .job-duration,
+            .job-location {
+                font-size: 12px;
+            }
+            
+            .job-description {
+                font-size: 12px;
+            }
+            
+            .skills-tag {
+                font-size: 10px;
+                padding: 3px 8px;
+                margin-right: 5px;
+                margin-bottom: 6px;
+            }
+            
+            .carousel-wrapper {
+                border-radius: 8px;
+            }
+            
+            .carousel-slide {
+                padding: 15px;
+            }
+            
+            .carousel-slide img {
+                max-height: 280px;
+            }
+            
+            .carousel-controls {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px;
+            }
+            
+            .carousel-button {
+                width: 100%;
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+            
+            .carousel-counter {
+                font-size: 11px;
+            }
+            
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+            
+            .carousel-dots {
+                gap: 6px;
+                padding: 12px;
+            }
+            
+            .contact-description {
+                font-size: 14px;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                padding: 10px 10px;
+                font-size: 12px;
+            }
+            
+            .form-group textarea {
+                min-height: 90px;
+            }
+            
+            .social-links {
+                gap: 12px;
+                margin-top: 20px;
+            }
+            
+            .social-link {
+                width: 38px;
+                height: 38px;
+                font-size: 14px;
+            }
+            
+            .cta-button {
+                padding: 9px 20px;
+                font-size: 13px;
+            }
+            
+            .scroll-to-top {
+                width: 42px;
+                height: 42px;
+                bottom: 15px;
+                right: 15px;
+                font-size: 18px;
+            }
+            
+            footer {
+                padding: 25px 12px;
+                font-size: 11px;
             }
         }
     </style>
@@ -909,8 +1342,8 @@
         <div class="hero-content">
             <h2>Project & Program Management Analyst</h2>
             <h1>Sidharth Jain</h1>
-            <div class="hero-title">Accenture | Resource & Capacity Planning | Scrum Master | PCS Certified</div>
-            <p>I am Sidharth Jain, a Detail-oriented and impact-driven Project & Program Management Analyst with 3+ years of experience at Accenture. Expert in resource and bench management, project staffing, capacity planning, and operational coordination. PCS Certified with proficiency in Power BI, Excel, and MS Project.</p>
+            <div class="hero-title">Accenture | Resource & Capacity Planning | PCS Certified</div>
+            <p>Detail-oriented and impact-driven Project & Program Management Analyst with 3+ years of experience at Accenture. Expert in resource and bench management, project staffing, capacity planning, and operational coordination. PCS Certified with proficiency in Power BI, Excel, and MS Project.</p>
             <div class="location-info">📍 Jaipur, Rajasthan, India</div>
             <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get In Touch</button>
         </div>
@@ -934,7 +1367,10 @@
                 <div class="stat-number" data-target="3">0</div>
                 <div class="stat-label">Years Experience</div>
             </div>
-            
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
         </div>
     </section>
     
@@ -957,7 +1393,7 @@
                 <div class="skill-percentage">92%</div>
             </div>
             <div class="skill-item">
-                <div class="skill-title">Power BI & MS Excel </div>
+                <div class="skill-title">MS Excel & Power BI</div>
                 <div class="skill-bar">
                     <div class="skill-progress" style="--progress: 90%;"></div>
                 </div>
@@ -969,7 +1405,6 @@
                     <div class="skill-progress" style="--progress: 88%;"></div>
                 </div>
                 <div class="skill-percentage">88%</div>
-
             </div>
         </div>
     </section>
@@ -978,7 +1413,7 @@
     <section id="about">
         <h3 class="section-title">About Me</h3>
         <div class="about-content">
-            <p> I'm Sidharth Jain, a detail-oriented and impact-driven Project & Program Management Analyst with over 3 years of experience at Accenture. My core expertise lies in resource and bench management, project staffing, capacity planning, and end-to-end operational coordination across multiple markets.</p>
+            <p>I'm Sidharth Jain, a detail-oriented and impact-driven Project & Program Management Analyst with over 3 years of experience at Accenture. My core expertise lies in resource and bench management, project staffing, capacity planning, and end-to-end operational coordination across multiple markets.</p>
             
             <p>I have successfully managed the staffing and allocation of over 140+ professionals, aligning skill sets with the right projects to ensure delivery efficiency and business success. I've also handled WBSE charge code management for salary submissions, onboarding/offboarding workflows for 60+ employees, and MD-level stakeholder meeting coordination across Indian locations – ensuring smooth transitions and consistent operational excellence.</p>
             
@@ -1133,14 +1568,33 @@
         <p>&copy; 2025 Sidharth Jain. All rights reserved. | Project & Program Management Analyst | Accenture</p>
     </footer>
     
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+    
     <script>
-        // Scroll Progress Bar
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        
         window.addEventListener('scroll', () => {
             const scrollProgress = document.getElementById('scrollProgress');
             const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
             const progress = (window.scrollY / totalHeight) * 100;
             scrollProgress.style.width = progress + '%';
+            
+            // Show/Hide Scroll to Top button
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
         });
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
         
         // Counter Animation for Stats
         const observerOptions = {
@@ -1238,4 +1692,3 @@
 </body>
 
 </html>
-
