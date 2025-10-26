@@ -258,61 +258,6 @@ nav a:hover {
     }
 }
 
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-        
-        
-        
-        
-        nav {
-            display: flex;
-            gap: 30px;
-            white-space: nowrap;
-        }
-        
-        .logo {
-            font-weight: 800;
-            font-size: 24px;
-            color: #fff;
-            letter-spacing: 1px;
-            animation: fadeInDown 0.8s ease-out 0.1s both;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: #b0b0b0;
-            font-weight: 500;
-            transition: all 0.3s;
-            white-space: nowrap;
-            position: relative;
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: #8a2be2;
-            transition: width 0.3s ease;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        nav a:hover {
-            color: #8a2be2;
-        }
         
         .hero {
             display: grid;
@@ -419,8 +364,6 @@ nav a:hover {
             box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
             animation: float 3s ease-in-out infinite, glow 3s ease-in-out infinite;
         }
-
-
 
      /* SKILLS SECTION */
 .skills-section {
@@ -549,9 +492,6 @@ nav a:hover {
     }
 }
 
-
-
-
         
         /* STATS SECTION */
         .stats-section {
@@ -635,66 +575,6 @@ nav a:hover {
             animation: scaleIn 0.8s ease-out 0.2s both;
         }
         
-        /* SKILLS SECTION */
-        .skills-section {
-            background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .skill-item {
-            animation: slideInLeft 0.8s ease-out;
-            animation-fill-mode: both;
-        }
-        
-        .skill-item:nth-child(odd) { animation-delay: 0.1s; }
-        .skill-item:nth-child(even) { animation-delay: 0.2s; }
-        .skill-item:nth-child(3) { animation-delay: 0.3s; }
-        .skill-item:nth-child(4) { animation-delay: 0.4s; }
-
-
-        
-        .skill-title {
-            color: #fff;
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        
-        .skill-bar {
-            height: 6px;
-            background: rgba(138, 43, 226, 0.2);
-            border-radius: 3px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #8a2be2, #5a1fa3);
-            border-radius: 3px;
-            width: 0%;
-            animation: progressBar 1.5s ease-out forwards;
-            transition: all 0.3s;
-        }
-        
-        .skill-bar:hover .skill-progress {
-            box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
-        }
-        
-        .skill-percentage {
-            color: #8a2be2;
-            font-size: 12px;
-            margin-top: 5px;
-            font-weight: 600;
-        }
-        
         .about-content {
             max-width: 1000px;
             margin: 0 auto;
@@ -735,6 +615,7 @@ nav a:hover {
         .exp-item:nth-child(1) { animation-delay: 0.1s; }
         .exp-item:nth-child(2) { animation-delay: 0.2s; }
         .exp-item:nth-child(3) { animation-delay: 0.3s; }
+        .exp-item:nth-child(4) { animation-delay: 0.4s; }
         
         .exp-item:hover {
             transform: translateX(10px);
@@ -862,6 +743,81 @@ nav a:hover {
             background: #8a2be2;
             color: #fff;
             transform: scale(1.1);
+        }
+
+        /* EDUCATION SECTION */
+        .education-item {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: rgba(138, 43, 226, 0.1);
+            border-left: 4px solid #8a2be2;
+            border-radius: 8px;
+            transition: all 0.3s;
+            animation: slideInLeft 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .education-item:nth-child(1) { animation-delay: 0.1s; }
+        .education-item:nth-child(2) { animation-delay: 0.2s; }
+        .education-item:nth-child(3) { animation-delay: 0.3s; }
+
+        .education-item:hover {
+            background: rgba(138, 43, 226, 0.15);
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.2);
+        }
+
+        .education-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .education-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #8a2be2 0%, #5a1fa3 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+
+        .education-item:hover .education-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .education-info h3 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .education-degree {
+            color: #8a2be2;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .education-duration {
+            color: #888;
+            font-size: 13px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .education-duration span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         
         .certificates-container {
@@ -1268,6 +1224,33 @@ nav a:hover {
                 padding: 4px 10px;
                 margin-right: 6px;
             }
+
+            .education-item {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            .education-header {
+                gap: 12px;
+            }
+
+            .education-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+
+            .education-info h3 {
+                font-size: 16px;
+            }
+
+            .education-degree {
+                font-size: 13px;
+            }
+
+            .education-duration {
+                font-size: 12px;
+            }
             
             .carousel-slide {
                 padding: 20px;
@@ -1488,6 +1471,29 @@ nav a:hover {
                 margin-right: 5px;
                 margin-bottom: 6px;
             }
+
+            .education-item {
+                padding: 18px;
+                margin-bottom: 20px;
+            }
+
+            .education-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+
+            .education-info h3 {
+                font-size: 14px;
+            }
+
+            .education-degree {
+                font-size: 12px;
+            }
+
+            .education-duration {
+                font-size: 11px;
+            }
             
             .carousel-wrapper {
                 border-radius: 8px;
@@ -1570,9 +1576,6 @@ nav a:hover {
                 font-size: 11px;
             }
         }
-
-
-
     </style>
 </head>
 <body>
@@ -1580,12 +1583,13 @@ nav a:hover {
     
     <!-- Header -->
     <header>
-        <div class="logo"></div>
+        <div class="logo">SJ</div>
         <nav>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
             <a href="#certificates">Certificates</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -1594,8 +1598,9 @@ nav a:hover {
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
+            
             <h1>Sidharth Jain</h1>
-            <div class="hero-title"> Resource Management | Capacity Planning | Power BI | RPA | PCS Certified</div>
+            <div class="hero-title">Resource Management | Capacity Planning | Power BI | RPA | PCS Certified</div>
             <p>Versatile and results-driven professional with 3+ years of experience at Accenture, spanning project management, business analytics, and automation engineering. Expert in resource allocation for 140+ professionals, Power BI analytics, RPA support (99% uptime), and operational excellence. PCS Certified with proficiency in Power BI, Excel, Automation Anywhere 360, and MS Project.</p>
             <div class="location-info">📍 Jaipur, Rajasthan, India</div>
             <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get In Touch</button>
@@ -1622,7 +1627,7 @@ nav a:hover {
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-target="2">0</div>
-                <div class="stat-label">Project's </div>
+                <div class="stat-label">Projects</div>
             </div>
         </div>
     </section>
@@ -1644,7 +1649,7 @@ nav a:hover {
         <h4 style="margin-top: 20px; margin-bottom: 10px; color: #a78bfa; font-weight: 600;">Work Style:</h4>
         <p>I thrive in high-pressure, cross-functional environments where I can leverage strong communication, problem-solving abilities, and adaptability to drive program control, resource governance, and operational excellence. Whether managing large-scale initiatives or troubleshooting technical challenges, I'm committed to delivering sustainable solutions that add measurable business value.</p>
         
-        <p style="margin-top: 20px;"> I'm actively seeking dynamic opportunities in Program Management, PMO Operations, Business Analytics roles where I can apply my multifaceted expertise to drive strategic impact and organizational growth.</p>
+        <p style="margin-top: 20px;">I'm actively seeking dynamic opportunities in Program Management, PMO Operations, Business Analytics roles where I can apply my multifaceted expertise to drive strategic impact and organizational growth.</p>
         
         <p>Let's connect and explore how we can achieve great things together!</p>
     </div>
@@ -1773,27 +1778,20 @@ nav a:hover {
                 
                 <div class="job-title">Packaged App Development Analyst | PMO</div>
                 <div><span class="job-type">Full-time</span></div>
-                <div class="job-duration">September 2023 - Present </div>
+                <div class="job-duration">September 2023 - Present</div>
                 <div class="job-location">📍 Jaipur, Rajasthan, India • Hybrid</div>
                 <div class="job-description">• Managed end-to-end staffing and resource allocation for 140+ team members across global projects, improving productivity</div>
-
-<div class="job-description">• Coordinated program-level planning and capacity forecasting to align resources with project demands, reducing resource gaps by 40% and ensuring 95%+ resource utilization across engagements</div>
-
-<div class="job-description">• Optimized WBSE charge code management processes, reducing billing errors by 60% and ensuring accurate salary submissions across multiple cost centers and project codes</div>
-
-<div class="job-description">• Conducted MD-level stakeholder meetings and coordination across Indian locations, presenting data-driven insights on resource trends, capacity constraints, and strategic hiring recommendations</div>
-
-<div class="job-description">• Developed and maintained Excel-based capacity planning models and dashboards to track resource utilization, identify bench resources, and forecast future staffing requirements with 90% accuracy</div>
-
-<div class="job-description">• Created Power BI reports and visualizations to monitor project staffing metrics, budget allocation, and resource performance KPIs, enabling real-time decision-making for senior leadership</div>
-
-<div class="job-description">• Collaborated with project managers and delivery heads to assess skill gaps, identify training needs, and implement targeted upskilling initiatives to enhance team capabilities</div>
-
-<div class="job-description">• Maintained comprehensive documentation of resource allocation policies, and charge code structures ensuring consistency and enabling knowledge transfer across PMO team members</div>
+                <div class="job-description">• Coordinated program-level planning and capacity forecasting to align resources with project demands, reducing resource gaps by 40% and ensuring 95%+ resource utilization across engagements</div>
+                <div class="job-description">• Optimized WBSE charge code management processes, reducing billing errors by 60% and ensuring accurate salary submissions across multiple cost centers and project codes</div>
+                <div class="job-description">• Conducted MD-level stakeholder meetings and coordination across Indian locations, presenting data-driven insights on resource trends, capacity constraints, and strategic hiring recommendations</div>
+                <div class="job-description">• Developed and maintained Excel-based capacity planning models and dashboards to track resource utilization, identify bench resources, and forecast future staffing requirements with 90% accuracy</div>
+                <div class="job-description">• Created Power BI reports and visualizations to monitor project staffing metrics, budget allocation, and resource performance KPIs, enabling real-time decision-making for senior leadership</div>
+                <div class="job-description">• Collaborated with project managers and delivery heads to assess skill gaps, identify training needs, and implement targeted upskilling initiatives to enhance team capabilities</div>
+                <div class="job-description">• Maintained comprehensive documentation of resource allocation policies, and charge code structures ensuring consistency and enabling knowledge transfer across PMO team members</div>
                 <div>
                     <span class="skills-tag">Microsoft PowerPoint</span>
                     <span class="skills-tag">Microsoft Excel</span>
-                    <span class="skills-tag">Microsoft Powwer BI </span>
+                    <span class="skills-tag">Microsoft Power BI</span>
                     <span class="skills-tag">Project Planning</span>
                     <span class="skills-tag">Resource Management</span>
                     <span class="skills-tag">Capacity Planning</span>
@@ -1805,47 +1803,39 @@ nav a:hover {
             <div class="exp-item">
                 <div class="job-title">Packaged App Development Associate | Business Analyst</div>
                 <div><span class="job-type">Full-time</span></div>
-                <div class="job-duration">December 2022 to September 2023 - Present </div>
+                <div class="job-duration">December 2022 to September 2023</div>
                 <div class="job-location">📍 Jaipur, Rajasthan, India • Remote</div>
-                <div class="job-description">• Developed and maintained Power BI reports and dashboards to track project metrics,
-                    providing real-time insights to stakeholders and enabling data-driven decision making</div>
-                <div class="job-description">• Provided ongoing support to existing Power BI reports, troubleshooting issues and 
-                    implementing client-requested modifications and enhancements</div>
-                <div class="job-description">• Created comprehensive project documentation and onboarding guides for new team members to 
-                    facilitate knowledge transfer and ensure project continuity</div>
-                 <div class="job-description">• Collaborated with cross-functional teams to identify process bottlenecks and implement data-driven 
-                     improvements</div>
+                <div class="job-description">• Developed and maintained Power BI reports and dashboards to track project metrics, providing real-time insights to stakeholders and enabling data-driven decision making</div>
+                <div class="job-description">• Provided ongoing support to existing Power BI reports, troubleshooting issues and implementing client-requested modifications and enhancements</div>
+                <div class="job-description">• Created comprehensive project documentation and onboarding guides for new team members to facilitate knowledge transfer and ensure project continuity</div>
+                <div class="job-description">• Collaborated with cross-functional teams to identify process bottlenecks and implement data-driven improvements</div>
                 <div>
-                    <span class="skills-tag">Microsoft Powwer BI </span>
+                    <span class="skills-tag">Microsoft Power BI</span>
                     <span class="skills-tag">Microsoft Excel</span>
                     <span class="skills-tag">Project Planning</span>
-                    <span class="skills-tag">Stakeholder Management </span>
-                    <span class="skills-tag"> Resource Planning </span>
-                    <span class="skills-tag">Communication </span>
+                    <span class="skills-tag">Stakeholder Management</span>
+                    <span class="skills-tag">Resource Planning</span>
+                    <span class="skills-tag">Communication</span>
                 </div>
             </div>
 
 
              <!-- Experience 3 -->
             <div class="exp-item">
-                <div class="job-title">Packaged App Development Associate | Automation </div>
+                <div class="job-title">Packaged App Development Associate | Automation</div>
                 <div><span class="job-type">Full-time</span></div>
-                <div class="job-duration">June 2022 to December 2022 - Present </div>
+                <div class="job-duration">June 2022 to December 2022</div>
                 <div class="job-location">📍 Jaipur, Rajasthan, India • Remote</div>
-                <div class="job-description">• Provided daily operational support for RPA bots built on Automation Anywhere 360, 
-                    ensuring 99% uptime and optimal performance</div>
-                <div class="job-description">• Identified and resolved bot failures and bugs in real-time, collaborating with clients to understand root causes and implement 
-                    corrective actions</div>
-                <div class="job-description">• Maintained comprehensive documentation of all bot issues, resolutions, and deployment changes for audit trails and knowledge 
-                    management</div>
-                 <div class="job-description">• Executed timely bot updates and deployments post-resolution, ensuring minimal disruption to business processes</div>
+                <div class="job-description">• Provided daily operational support for RPA bots built on Automation Anywhere 360, ensuring 99% uptime and optimal performance</div>
+                <div class="job-description">• Identified and resolved bot failures and bugs in real-time, collaborating with clients to understand root causes and implement corrective actions</div>
+                <div class="job-description">• Maintained comprehensive documentation of all bot issues, resolutions, and deployment changes for audit trails and knowledge management</div>
+                <div class="job-description">• Executed timely bot updates and deployments post-resolution, ensuring minimal disruption to business processes</div>
                 <div class="job-description">• Analyzed and implemented new automation requirements and feature enhancements, translating business needs into RPA solutions</div>
-                
                 <div>
-                    <span class="skills-tag">Automation Anywhere 360 </span>
+                    <span class="skills-tag">Automation Anywhere 360</span>
                     <span class="skills-tag">Microsoft Excel</span>
                     <span class="skills-tag">Project Planning</span>
-                    <span class="skills-tag">Communication </span>
+                    <span class="skills-tag">Communication</span>
                 </div>
             </div>
             
@@ -1901,6 +1891,59 @@ nav a:hover {
                 </div>
                 <div style="margin-top: 15px;">
                     <a href="https://explorewithme.live" target="_blank" style="color: #8a2be2; text-decoration: none; font-weight: 600; display: inline-block;">🌐 Visit Project →</a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h3 class="section-title">Education</h3>
+        <div class="experience-container">
+            
+            <!-- Education 1 -->
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-info">
+                        <h3>Teerthanker Mahaveer University</h3>
+                        <div class="education-degree">Bachelor of Computer Application (BCA)</div>
+                        <div class="education-duration">
+                            <span>📅 2018 - 2021</span>
+                            <span>📍 Moradabad, Uttar Pradesh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education 2 -->
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-icon">📚</div>
+                    <div class="education-info">
+                        <h3>Shiv Jyoti School Kota</h3>
+                        <div class="education-degree">12th Grade (PCM - Physics, Chemistry, Mathematics)</div>
+                        <div class="education-duration">
+                            <span>📅 May 2015 - May 2016</span>
+                            <span>📍 Kota, Rajasthan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education 3 -->
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-icon">📖</div>
+                    <div class="education-info">
+                        <h3>Shiv Jyoti School Kota</h3>
+                        <div class="education-degree">10th Grade</div>
+                        <div class="education-duration">
+                            <span>📅 May 2013 - May 2014</span>
+                            <span>📍 Kota, Rajasthan</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -1979,7 +2022,7 @@ nav a:hover {
     
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Sidharth Jain. All rights reserved. | Project & Program Management Analyst | Accenture</p>
+        <p>&copy; 2025 Sidharth Jain. All rights reserved. | Project & Program Management Analyst </p>
     </footer>
     
     <!-- Scroll to Top Button -->
@@ -2106,4 +2149,3 @@ nav a:hover {
 </body>
 
 </html>
-
